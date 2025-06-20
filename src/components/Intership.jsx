@@ -1,52 +1,38 @@
-import { Briefcase, Calendar, MapPin, Award } from "lucide-react";
+import { Briefcase, Calendar, Award } from "lucide-react";
 
 const Internships = () => {
   const experiences = [
     {
-      title: "Web Development Intern",
-      company: "Tech Solutions Pvt. Ltd.",
-      location: "City, State",
-      duration: "Jun 2023 - Aug 2023",
+      title: "Frontend Web devlopment",
+      company: "Cybernaut",
+      duration: "June 2024 - August 2024",
       type: "Summer Internship",
       description:
-        "Worked on front-end development using React.js and contributed to responsive web design projects.",
-      achievements: [
-        "Developed 3 responsive web pages using React.js and CSS",
-        "Collaborated with senior developers on code reviews",
-        "Learned agile development methodologies",
-        "Improved website loading speed by 20%",
-      ],
-      skills: ["React.js", "HTML/CSS", "JavaScript", "Git", "Teamwork"],
+        "Participated in frontend web development  and gained hands-on experience",
+      skills: ["HTML/CSS","Javascript","React"],
     },
     {
-      title: "Software Development Trainee",
-      company: "StartUp Inc.",
-      location: "City, State",
-      duration: "Dec 2022 - Feb 2023",
+      title: "Full Stack web Development Intern",
+      company: "Edunet Foundation",
+      duration: "October 2024 - March 2025",
       type: "Winter Internship",
       description:
-        "Participated in software development lifecycle and gained hands-on experience with full-stack development.",
-      achievements: [
-        "Built a complete CRUD application using Node.js",
-        "Learned database design principles",
-        "Participated in daily standup meetings",
-        "Documented technical specifications",
-      ],
-      skills: ["Node.js", "MongoDB", "Express.js", "API Development"],
+        "Worked on front-end development using React.js and contributed to responsive web design projects.",
+      skills: ["React.js", "HTML/CSS", "JavaScript","MongoDB", "Softskills"],
     },
   ];
 
   const certifications = [
     {
-      name: "React.js Fundamentals",
-      issuer: "FreeCodeCamp",
-      date: "2023",
-      type: "Online Course",
+      name: "IPC WINNER",
+      issuer: "Rajalakshmi Engineering College",
+      date: "2025",
+      type: "Hackathon",
     },
     {
-      name: "Java Programming",
-      issuer: "Coursera",
-      date: "2022",
+      name: "Fundamentals of CyberSecurity",
+      issuer: "Cisco",
+      date: "2024",
       type: "Certification",
     },
   ];
@@ -55,7 +41,7 @@ const Internships = () => {
     <section className="py-5 bg-white">
       <div className="container">
         <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold">Experience & Learning</h2>
+          <h2 className="display-6 fw-bold">Experience & Learning</h2>
           <hr className="w-25 mx-auto text-primary" />
           <p className="lead text-muted">
             Internships, training programs, and certifications that have shaped my practical knowledge
@@ -80,23 +66,12 @@ const Internships = () => {
                   </div>
 
                   <p className="text-muted mb-2">
-                    <Calendar className="me-1" size={16} /> {exp.duration} | <MapPin className="mx-1" size={16} />
-                    {exp.location}
+                    <Calendar className="me-1" size={16} /> {exp.duration}
                   </p>
 
                   <p>{exp.description}</p>
 
-                  <h6 className="fw-bold d-flex align-items-center">
-                    <Award className="me-2 text-success" /> Key Achievements
-                  </h6>
-                  <ul className="list-unstyled">
-                    {exp.achievements.map((item, idx) => (
-                      <li key={idx} className="d-flex align-items-start mb-1">
-                        <span className="badge bg-primary me-2 mt-1" style={{ width: "6px", height: "6px" }}></span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  
 
                   <div className="mt-3">
                     {exp.skills.map((skill, idx) => (
@@ -112,7 +87,7 @@ const Internships = () => {
 
           <div className="col-lg-4">
             <h3 className="h4 fw-semibold mb-4 d-flex align-items-center">
-              <Award className="me-2 text-success" /> Certifications
+              <Award className="me-2 text-success" /> Achievements
             </h3>
 
             {certifications.map((cert, index) => (

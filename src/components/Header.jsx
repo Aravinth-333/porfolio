@@ -6,16 +6,12 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navItems = [
     { href: "#home", label: "Home", icon: Home },
@@ -28,45 +24,45 @@ const Header = () => {
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
   return (
     <header className={`fixed-top ${isScrolled ? 'shadow-sm bg-white' : 'bg-transparent'}`}>
-      <nav className="navbar navbar-expand-md container py-3">
-        <div className="container-fluid">
-          <span className="navbar-brand fw-bold text-primary">
-            Portfolio
-          </span>
+      <nav className="navbar container py-3">
+        <div className="d-flex justify-content-between align-items-center w-100">
+          <span className="navbar-brand fw-bold text-primary">Portfolio</span>
+
+          {/* Hamburger button */}
           <button
-            className="navbar-toggler"
+            className="d-md-none btn"
             type="button"
             onClick={toggleMenu}
-            aria-label="Toggle navigation"
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X /> : <Menu />}
           </button>
-          <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}>
-            <ul className="navbar-nav ms-auto mb-2 mb-md-0">
-              {navItems.map(({ href, label }) => (
-                <li className="nav-item" key={href}>
-                  <button
-                    className="btn nav-link text-dark fw-medium"
-                    onClick={() => scrollToSection(href)}
-                  >
-                    {label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {/* Desktop Nav */}
+          <ul className="navbar-nav d-none d-md-flex flex-row ms-auto gap-4">
+            {navItems.map(({ href, label }) => (
+              <li key={href} className="nav-item">
+                <button
+                  className="btn nav-link text-dark fw-medium"
+                  onClick={() => scrollToSection(href)}
+                >
+                  {label}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </nav>
+
+      {/* Mobile Nav Dropdown */}
       {isMenuOpen && (
-        <div className="bg-white border-top py-3 d-md-none">
+        <div className="bg-white border-top py-3 d-md-none position-absolute w-100 z-3">
           <ul className="list-unstyled px-3">
             {navItems.map(({ href, label, icon: Icon }) => (
               <li key={href} className="mb-2">

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { useState } from "react";
 
 const Contact = () => {
@@ -27,19 +27,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "your.email@gmail.com",
-      link: "mailto:your.email@gmail.com"
+      value: "aravinth.engineering@gmail.com",
+      link: "mailto:aravinth.engineering@gmail.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+91 XXXXX XXXXX",
-      link: "tel:+91XXXXXXXXX"
+      value: "+91 6369850081",
+      link: "tel:+916369850081"
     },
     {
       icon: MapPin,
       title: "Location",
-      value: "Your City, India",
+      value: "Chennai, India",
       link: "#"
     }
   ];
@@ -81,10 +81,6 @@ const Contact = () => {
                     </a>
                   );
                 })}
-                <div className="mt-4 p-3 bg-primary text-white rounded">
-                  <Clock size={16} className="me-2" />
-                  <strong>Response Time:</strong> I typically respond within 24 hours.
-                </div>
               </div>
             </div>
           </div>
@@ -152,13 +148,6 @@ const Contact = () => {
                     <Send size={16} /> Send Message
                   </button>
                 </form>
-
-                <div className="alert alert-success mt-4 d-flex align-items-center gap-2">
-                  <CheckCircle size={18} className="text-success" />
-                  <div>
-                    <strong>Quick Response Guaranteed:</strong> I prioritize replying to all messages promptly.
-                  </div>
-                </div>
               </div>
             </div>
           </div>

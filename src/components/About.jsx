@@ -4,9 +4,6 @@ import {
   Calendar,
   Target,
   Heart,
-  Code,
-  Zap,
-  Users,
 } from "lucide-react";
 
 const About = () => {
@@ -14,14 +11,14 @@ const About = () => {
     {
       icon: User,
       title: "Fresh Graduate",
-      value: "BTech CSE 2024",
+      value: "BTech AI&DS 2026",
       bgColor: "bg-primary-subtle",
       gradient: "bg-primary text-white",
     },
     {
       icon: Award,
       title: "Academic Excellence",
-      value: "8.5+ CGPA",
+      value: "8.40 CGPA",
       bgColor: "bg-warning-subtle",
       gradient: "bg-warning text-white",
     },
@@ -38,19 +35,19 @@ const About = () => {
     <section id="about" className="py-5 bg-white position-relative">
       <div className="container position-relative z-1">
         <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold text-dark mb-3">About Me</h2>
+          <h2 className="display-6 fw-bold text-dark mb-3">About Me</h2>
           <div
             className="mx-auto mb-3"
             style={{
-              width: "100px",
-              height: "4px",
+              width: "130px",
+              height: "5px",
               background:
                 "linear-gradient(to right, #3b82f6, #8b5cf6)",
-              borderRadius: "999px",
+              borderRadius: "99999px",
             }}
           />
           <p className="lead text-muted">
-            A passionate BTech graduate ready to make an impact in the tech
+            A passionate B.Tech graduate ready to make an impact in the tech
             world with fresh ideas and dedication
           </p>
         </div>
@@ -99,7 +96,7 @@ const About = () => {
             {highlights.map(({ icon: Icon, title, value, bgColor, gradient }, idx) => (
               <div key={idx} className={`card border-0 mb-4 shadow-sm ${bgColor}`}>
                 <div className="card-body d-flex align-items-center">
-                  <div className={`rounded-4 d-flex align-items-center justify-content-center me-4 ${gradient}`} style={{ width: "64px", height: "64px" }}>
+                  <div className={`rounded-4 d-flex align-items-center justify-content-center me-4 ${gradient}`} style={{ width: "59px", height: "59px" }}>
                     <Icon size={28} />
                   </div>
                   <div>
@@ -109,27 +106,6 @@ const About = () => {
                 </div>
               </div>
             ))}
-
-            {/* Final Motivation Block */}
-            <div className="card border-0 shadow text-white bg-gradient" style={{ background: "linear-gradient(to right, #3b82f6, #8b5cf6)" }}>
-              <div className="card-body">
-                <h5 className="fw-bold mb-3">Ready to Contribute</h5>
-                <ul className="list-unstyled mb-0">
-                  {[
-                    "Fresh perspective on problem-solving",
-                    "Updated knowledge of latest technologies",
-                    "Enthusiasm for learning and growth",
-                    "Strong academic foundation",
-                    "Collaborative team player",
-                  ].map((item, idx) => (
-                    <li key={idx} className="d-flex align-items-center mb-2">
-                      <span className="bg-white rounded-circle me-3" style={{ width: "8px", height: "8px", opacity: 0.7 }} />
-                      <span className="text-white-50">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </div>
