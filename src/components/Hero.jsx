@@ -1,4 +1,5 @@
 import { ArrowDown, Download, Github, Linkedin, Mail, Code } from "lucide-react";
+import image from '../Images/Aravinthprofession.jpg';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -11,12 +12,21 @@ const Hero = () => {
 
       <div className="container position-relative z-1 py-5 px-3">
 
-        <h1 className="display-4 fw-bold text-dark mb-3">
+       <div className="d-flex justify-content-center">
+          <img
+            src={image}
+            alt="Aravinth S"
+            className="rounded-circle mb-3"
+            style={{ width: '140px', height: '140px', objectFit: 'cover', border: '3px solid #007bff',marginTop:'20px' }}
+          />
+          </div>
+        <h1 className="display-5 fw-bold text-dark mb-3">
           Hello, I'm
           <div className="text-gradient fw-bold d-block">
             ARAVINTH S
           </div>
         </h1>
+       
 
         <p className="lead text-secondary mb-2">Bachelor of Technology Graduate in Artificial Inteligence and Data Science</p>
         <div className="d-flex justify-content-center align-items-center gap-2 text-primary mb-3">
