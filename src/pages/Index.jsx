@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Internships from "../components/Intership";
 import Projects from "../components/Projects";
 import Skills from '../components/Skills'
-
+import './index.css';
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">

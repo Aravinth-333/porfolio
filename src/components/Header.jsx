@@ -29,57 +29,158 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed-top ${isScrolled ? 'shadow-sm bg-white' : 'bg-transparent'}`}>
-      <nav className="navbar container py-3">
-        <div className="d-flex justify-content-between align-items-center w-100">
-          <span className="navbar-brand fw-bold text-primary">Portfolio</span>
+    <header
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 50,
+        backgroundColor: isScrolled ? "rgba(10, 10, 10, 0.95)" : "transparent",
+        backdropFilter: "blur(10px)",
+        borderBottom: isScrolled
+          ? "1px solid rgba(255,255,255,0.1)"
+          : "1px solid transparent",
+        transition: "all 0.4s ease",
+      }}
+    >
+     <nav
+  style={{
+    width: "100%",
+    padding: window.innerWidth < 768 ? "16px 12px" : "16px 48px", 
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  }}
+>
 
-          {/* Hamburger button */}
-          <button
-            className="d-md-none btn"
-            type="button"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+        {/* Logo / Brand */}
+        <span
+          style={{
+            fontSize: "20px",
+            fontWeight: "800",
+            background: "linear-gradient(135deg, #00d4ff, #5b21b6, #ff6b6b)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            cursor: "pointer",
+            letterSpacing: "1px",
+          }}
+        >
+          Aravinth.io
+        </span>
 
-          {/* Desktop Nav */}
-          <ul className="navbar-nav d-none d-md-flex flex-row ms-auto gap-4">
-            {navItems.map(({ href, label }) => (
-              <li key={href} className="nav-item">
-                <button
-                  className="btn nav-link text-dark fw-medium"
-                  onClick={() => scrollToSection(href)}
-                >
-                  {label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Desktop Nav */}
+        <ul
+          style={{
+            listStyle: "none",
+            display: "flex",
+            gap: "28px",
+          }}
+          className="d-none d-md-flex"
+        >
+          {navItems.map(({ href, label }) => (
+            <li key={href}>
+              <button
+                onClick={() => scrollToSection(href)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#ffffff",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  letterSpacing: "0.5px",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.color = "#00d4ff";
+                  e.target.style.textShadow = "0 0 10px rgba(0,212,255,0.6)";
+                  e.target.style.transform = "scale(1.05)";
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.color = "#ffffff";
+                  e.target.style.textShadow = "none";
+                  e.target.style.transform = "scale(1)";
+                }}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        {/* Hamburger (Mobile) */}
+        <button
+          className="d-md-none"
+          onClick={toggleMenu}
+          style={{
+            background: "none",
+            border: "none",
+            color: "#ffffff",
+            cursor: "pointer",
+          }}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </nav>
 
-      {/* Mobile Nav Dropdown */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="bg-white border-top py-3 d-md-none position-absolute w-100 z-3">
-          <ul className="list-unstyled px-3">
-            {navItems.map(({ href, label, icon: Icon }) => (
-              <li key={href} className="mb-2">
-                <button
-                  className="btn w-100 text-start d-flex align-items-center text-dark"
-                  onClick={() => scrollToSection(href)}
-                >
-                  <Icon size={18} className="me-2" />
-                  {label}
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div
+          style={{
+            backgroundColor: "rgba(10,10,10,0.95)",
+            borderTop: "1px solid rgba(255,255,255,0.1)",
+            padding: "20px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "15px",
+            animation: "slideDown 0.3s ease forwards",
+          }}
+          className="d-md-none"
+        >
+          {navItems.map(({ href, label, icon: Icon }) => (
+            <button
+              key={href}
+              onClick={() => scrollToSection(href)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                background: "none",
+                border: "none",
+                color: "#ffffff",
+                fontSize: "16px",
+                fontWeight: "500",
+                padding: "10px 0",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              onMouseOver={(e) => {
+                e.target.style.color = "#00d4ff";
+                e.target.style.transform = "translateX(5px)";
+              }}
+              onMouseOut={(e) => {
+                e.target.style.color = "#ffffff";
+                e.target.style.transform = "translateX(0)";
+              }}
+            >
+              <Icon size={18} /> {label}
+            </button>
+          ))}
         </div>
       )}
     </header>
   );
 };
+
+// Animation for mobile menu
+const styleSheet = document.createElement("style");
+styleSheet.innerHTML = `
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(styleSheet);
 
 export default Header;

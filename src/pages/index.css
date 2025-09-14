@@ -1,0 +1,12 @@
+*{
+    font-family:'Courier New', Courier, monospace;
+}
+
+/* Prevents white strip in mobile view */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* hides horizontal scroll */
+  background: #0a0a0a; /* your dark background */
+}
